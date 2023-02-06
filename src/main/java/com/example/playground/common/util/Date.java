@@ -1,4 +1,4 @@
-package com.example.playground.Common.Util;
+package com.example.playground.controller;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;

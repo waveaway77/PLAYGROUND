@@ -1,4 +1,4 @@
-package com.example.playground.Common.Util;
+package com.example.playground.common.util;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
