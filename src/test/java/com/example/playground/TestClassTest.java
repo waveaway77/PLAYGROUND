@@ -2,9 +2,6 @@ package com.example.playground;
 
 import com.example.model.StrClass;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.TestComponent;
-
-import java.io.ObjectStreamClass;
 import java.security.MessageDigest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,12 +9,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TestClassTest {
-
 
     @Test
     void nullTest() {
@@ -164,6 +157,14 @@ class TestClassTest {
     }
 
     @Test
+    public void equalTest() {
+        /*
+        동등비교연산자(==) : 두 비교 대상의 저장 위치가 같은가, 원시형 데이터(자료형, Boolean)
+        .equals() : 두 비교 대상의 데이터의 내용이 같은가, 비원시형 데이터(String, Array, File ...)
+        */
+    }
+
+    @Test
     void testDoHashing() throws Exception {
 
 //        String plainTextAddSalt = "Passw0rd!"+SALT; // 송월
@@ -290,5 +291,116 @@ class TestClassTest {
             System.out.println("2. it contains 1 and a");
         }
 
+    }
+
+    @Test
+    public void length() {
+        /*
+        1. length
+         - arrays(int[], double[], String[])
+         - length는 배열의 길이를 알고자 할때 사용된다.
+
+        2. length()
+         - String related Object(String, StringBuilder etc)
+         - length()는 문자열의 길이를 알고자 할때 사용된다.
+
+        3. size()
+         - Collection Object(ArrayList, Set etc)
+         - size()는 컬렉션프레임워크 타입의 길이를 알고자 할때 사용된다.
+
+         */
+        int[] lengthTest1 = new int[7];
+        System.out.println(lengthTest1.length); //7
+
+        String lengthTest2 = "lengthSizeTest";
+        System.out.println(lengthTest2.length()); //14
+
+        ArrayList<Object> sizeTest = new ArrayList<>();
+        System.out.println(sizeTest.size()); //0
+    }
+
+    @Test
+    public void booleanTest() {
+        /*
+        Boolean의 기본값은 null
+        boolean의 기본값은 flase
+        bool > String : String.valudeOf(bool)
+        */
+    }
+
+    @Test
+    public void arrayTest() {
+        /*
+
+        // 크기 할당 & 초기화 없이 배열 참조변수만 선언
+        int[] arr;
+        int arr[];
+
+        // 선언과 동시에 배열 크기 할당
+        int[] arr = new int[5];
+
+        // 선언과 동시에 배열의 크기 지정 및 값 초기화
+        int[] arr = {1,2,3,4,5}
+        int arr = new int[] {1,2,3,4,5};
+
+        ArrayList<Integer> integers1 = new ArrayList<Integer>(); // 타입 지정
+        ArrayList<Integer> integers2 = new ArrayList<>(); // 타입 생략 가능
+        ArrayList<Integer> integers3 = new ArrayList<>(10); // 초기 용량(Capacity) 설정
+        ArrayList<Integer> integers4 = new ArrayList<>(integers1); // 다른 Collection값으로 초기화
+        ArrayList<Integer> integers5 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)); // Arrays.asList()
+        */
+    }
+
+    @Test
+    public void split1() {
+
+        String[] array = "127.0.0.0.1".split("\\."); //ip.split("[.]");
+        String[] moNum = "010-1111-2222".split("-");
+        for(String a : moNum) {
+            System.out.println(a);
+            /*
+            010
+            1111
+            2222
+             */
+        }
+
+        String str1 = "hi my name is";
+        String[] array1 = str1.split(" ");
+        /*
+        hi
+        my
+        name
+        is
+         */
+        String[] array2 = str1.split("");
+        /*
+        h
+        i
+
+        m
+        y
+
+        n
+        ...
+         */
+    }
+
+    @Test
+    public void replaceFirst1() {
+        String str = "test%test";
+        String str1 = str.replace("test", "@"); //@%@
+        String str2 = str.replaceFirst("test","!"); //!%test
+    }
+    //오른쪽으로 0으로 채우는 String.format
+
+    @Test
+    public void continueBreak() {
+        /*
+        break : 해당 조건문 블록 & 그 밖의 반복문 자체를 탈출
+        continue : 해당 조건문 블록 탈출하여 아래 실행문 스킵(반복문의 끝으로 이동하여), 다음 반복문 실행절차를 수행
+            for : 증감식으로 이동
+            while : 조건식으로 이동
+        */
     }
 }

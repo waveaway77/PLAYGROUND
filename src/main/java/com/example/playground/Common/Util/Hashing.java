@@ -1,6 +1,4 @@
-package com.example.playground.controller;
-
-import org.springframework.util.Assert;
+package com.example.playground.Common.Util;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
